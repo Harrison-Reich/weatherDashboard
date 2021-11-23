@@ -4,7 +4,7 @@ let weather = {
     fetch(
       "https://api.openweathermap.org/data/2.5/weather?q=" +
       city +
-      "&units=metric&appid=" +
+      "&units=imperial&appid=" +
       this.apiKey
     )
       .then((response) => {
@@ -22,7 +22,7 @@ let weather = {
     document.getElementById("description").innerText = description;
     document.getElementById("temp").innerText = temp + "°F";
     document.getElementById("humidity").innerText = "Humidity: " + humidity + "%";
-    document.getElementById("wind").innerText = "Wind speed: " + speed + " km/h";
+    document.getElementById("wind").innerText = "Wind speed: " + speed + " mph";
   },
   search: function () {
     this.getWeather(document.getElementById("search-bar").value);
@@ -39,4 +39,4 @@ document.getElementById("search-bar").addEventListener("keyup", function (event)
   }
 });
 
-weather.getWeather("");
+weather.getWeather("Costa Mesa");
