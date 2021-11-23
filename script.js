@@ -1,3 +1,4 @@
+// daily weather variable
 let weather = {
   apiKey: "86296f2ec0b9ce69883449dd897f8071",
   getWeather: function (city) {
@@ -12,6 +13,7 @@ let weather = {
       })
       .then((data) => this.showWeather(data));
   },
+  // displaying weather data and setting parameters
   showWeather: function (data) {
     const { name } = data;
     const { icon, description } = data.weather[0];
@@ -28,7 +30,7 @@ let weather = {
     this.getWeather(document.getElementById("search-bar").value);
   },
 };
-
+weekly weather variable
 let weeklyForcast = {
   apiKey: "db7b41c9a7b9d12ad92577b7245ce042",
   getWeekly: function (city) {
@@ -40,6 +42,7 @@ let weeklyForcast = {
       })
       .then((data) => this.showWeekly(data));
   },
+// displaying weekly weather variable and setting parameters
   showWeekly: function (data) {
     const { name } = data;
     const { icon, description } = data.weather[0];
@@ -57,6 +60,7 @@ let weeklyForcast = {
   },
 };
 
+// calling function on click
 document.getElementById("searchButton").addEventListener("click", function () {
   weather.search();
 });
@@ -64,6 +68,6 @@ document.getElementById("searchButton").addEventListener("click", function () {
   weeklyForcast.search();
 });
 
-
+// set current page weather
 weather.getWeather("Costa Mesa");
 weeklyForcast.getWeekly("Costa Mesa");
