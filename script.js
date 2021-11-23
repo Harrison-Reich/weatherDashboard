@@ -29,18 +29,18 @@ let weather = {
   },
 };
 
-let weekForcast = {
+let weeklyForcast = {
   apiKey: "86296f2ec0b9ce69883449dd897f8071",
-  getWeather: function (city) {
+  getWeekly: function (city) {
     fetch(
-      "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid="this.apiKey"
+      "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + this.apiKey
     )
       .then((response) => {
         return response.json();
       })
-      .then((data) => this.showWeather(data));
+      .then((data) => this.showWeekly(data));
   },
-  showWeather: function (data) {
+  showWeekly: function (data) {
     const { name } = data;
     const { icon, description } = data.weather[0];
     const { temp, humidity } = data.main;
@@ -52,16 +52,18 @@ let weekForcast = {
     document.getElementById("humidity").innerText = "Humidity: " + humidity + "%";
     document.getElementById("wind").innerText = "Wind speed: " + speed + " mph";
   },
+  search: function () {
+    this.getWeekly(document.getElementById("search-bar").value);
+  },
 };
 
 document.getElementById("searchButton").addEventListener("click", function () {
   weather.search();
 });
-
-document.getElementById("search-bar").addEventListener("keyup", function (event) {
-  if (event.key == "Enter") {
-    weather.search();
-  }
+document.getElementById("searchButton").addEventListener("click", function () {
+  weeklyForcast.search();
 });
 
+
 weather.getWeather("Costa Mesa");
+weeklyForcast.getWeekly("Costa Mesa");
