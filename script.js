@@ -30,7 +30,7 @@ let weather = {
 };
 
 let weeklyForcast = {
-  apiKey: "86296f2ec0b9ce69883449dd897f8071",
+  apiKey: "db7b41c9a7b9d12ad92577b7245ce042",
   getWeekly: function (city) {
     fetch(
       "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + this.apiKey
