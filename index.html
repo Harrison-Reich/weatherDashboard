@@ -21,24 +21,37 @@
       <div class="col-sm-4">
         <div class="card" id="card">
           <div class="search" id="search">
-            <input type="text" class="search-bar" id="search-bar" placeholder="Costa Mesa">
+            <input type="text" class="search-bar" id="search-bar" placeholder="City Name">
             <button class="btn btn-primary" id="searchButton">Search</button>
+
+            <ul class="list-group" id="searchList">
+              
+            </ul>
+
           </div>
         </div>
       </div>
       <div class="col-sm-8">
-        <div class="weather" id="weather">
-          <h2 class="city" id="city">Weather in </h2>
-          <h1 class="temp" id="temp">°F</h1>
+        <div id="weather">
+          <h2 id="city">Weather in </h2>
+          <h1 id="temp">°F</h1>
           <div class="flex">
-            <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" id="icon" />
-            <div class="description" id="description"></div>
+            <img src="https://openweathermap.org/img/wn/04n.png" alt="" id="icon" />
+            <div id="description"></div>
           </div>
-          <div class="humidity" id="humidity">Humidity:</div>
-          <div class="wind" id="wind">Wind speed: mph</div>
+          <div id="humidity">Humidity:</div>
+          <div id="wind">Wind speed: mph</div>
         </div>
       </div>
     </div>
+    
+      <div class="container">
+        <h2>5-Day Forecast</h2>
+        <div class="row mt-5 justify-content-around align-items-center" id="forecast"></div>
+      </div>
+
+    </div>
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
